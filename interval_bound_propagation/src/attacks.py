@@ -87,7 +87,7 @@ class UnrolledGradientDescent(UnrolledOptimizer):
     grads = tf.gradients(
         loss, x, colocate_gradients_with_ops=self._colocate_gradients_with_ops)
     new_x = [None] * len(x)
-    for i in xrange(len(x)):
+    for i in range(len(x)):
       new_x[i] = x[i] - lr * grads[i]
     new_optim_state = self._State(optim_state.iteration + 1)
     return new_x, new_optim_state
@@ -124,7 +124,7 @@ class UnrolledAdam(UnrolledOptimizer):
         u=[None] * len(x))
     t = new_optim_state.t
     new_x = [None] * len(x)
-    for i in xrange(len(x)):
+    for i in range(len(x)):
       g = grads[i]
       m_old = optim_state.m[i]
       u_old = optim_state.u[i]

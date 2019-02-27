@@ -153,7 +153,7 @@ class ClassificationSpecification(Specification):
     with self._enter_variable_scope():
       indices = []
       for i in range(self._num_classes):
-        indices.append(range(i) + range(i + 1, self._num_classes))
+        indices.append(list(range(i)) + list(range(i + 1, self._num_classes)))
       self._js = tf.constant(indices, dtype=tf.int32)
       self._correct_idx, self._wrong_idx = self._build_indices(label)
 
